@@ -44,7 +44,7 @@ const schema = z
     }),
     hasCoupon: z.boolean(),
     coupon: z.string(),
-    password: z.string().min(6, { message: "Password must contain at least 6 characters" }).max(12, { message: "Must be 12 or fewer characters long" }),
+    password: z.string().min(6, { message: "Password must contain at least 6 characters" }).max(12, { message: "Password must not exceed 12 characters" }),
     confirmPassword: z.string(),
   }).refine((data) => { 
     if( data.confirmPassword === data.password) return true; 
